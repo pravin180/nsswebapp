@@ -1,0 +1,643 @@
+<div class="container">
+	<h1 class="well">Registration Form</h1>
+	<form [formGroup]="frm" (ngSubmit)="submit()">
+		<div class="container" class="well">
+
+			<div class="row">
+				<span> Applying for Award </span>
+				<form>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio" name="example"
+							value="customEx">
+						<label class="custom-control-label" for="customRadio">Award A</label>
+
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio2" name="example"
+							value="customEx">
+						<label class="custom-control-label" for="customRadio2">Award B</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio3" name="example"
+							value="customEx">
+						<label class="custom-control-label" for="customRadio3">Award C</label>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Personal Details -->
+		<div class="col-lg-12 well">
+			<div class="row">
+				<span>
+					<h2>Personal Details</h2>
+				</span>
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Full Name</label>
+								<div>
+									<input formControlName="fullname" class="form-control" type="text"
+										placeholder="As aperered on HSC Marksheet" class="form-control">
+									<small class="error"
+										*ngIf="f.fullname.invalid && (f.fullname.dirty || f.fullname.touched)">
+										<div *ngIf="f.fullname.hasError('required')">This field is required.</div>
+										<div *ngIf="f.fullname.hasError('pattern')">Only alphbates are allowed.</div>
+									</small>
+								</div>
+
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Father's Name</label>
+								<div>
+									<input formControlName="fathersname" class="form-control" type="text"
+										placeholder="Enter  Name Here.." class="form-control">
+									<small class="error"
+										*ngIf="f.fathersname.invalid && (f.fathersname.dirty || f.fathersname.touched)">
+										<div *ngIf="f.fathersname.hasError('required')">This field is required.</div>
+										<div *ngIf="f.fathersname.hasError('pattern')">Only alphbates are allowed.</div>
+									</small>
+								</div>
+							</div>
+
+							<div class="col-sm-6 form-group">
+								<label>Mother's Name</label>
+								<div>
+									<input formControlName="mothersname" class="form-control" type="text"
+										placeholder="Enter Name Here.." class="form-control">
+									<small class="error"
+										*ngIf="f.mothersname.invalid && (f.mothersname.dirty || f.mothersname.touched)">
+										<div *ngIf="f.mothersname.hasError('required')">This field is required.</div>
+										<div *ngIf="f.mothersname.hasError('pattern')">Only alphbates are allowed.</div>
+									</small>
+								</div>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.GenderCode.value=='' }"> Gender
+								</label>
+								<div>
+									<input formControlName="gender" class="form-control">
+									<select name="cars" class="custom-select">
+										<option value="volvo">Male</option>
+										<option value="fiat">Female</option>
+									</select>
+									<div *ngIf="submitted && fval.genderCode.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.dateofbirth.value=='' }">Date of
+									Birth</label>
+								<div>
+									<input formControlName="dateofbirth" class="form-control" type="date"
+										placeholder="Enter date f birth" class="form-control">
+									<div *ngIf="submitted && fval.dateofbirth.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.nationality.value=='' }">
+									Nationality</label>
+								<div>
+									<input formControlName="nationality" class="form-control">
+									<select name="cars" class="custom-select">
+										<option value="volvo">Select Country</option>
+										<option value="fiat">India</option>
+									</select>
+									<div *ngIf="submitted && fval.nationality.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.religion.value=='' }">
+									Religion</label>
+								<div><input formControlName="religion" class="form-control">
+									<select name="cars" class="custom-select">
+										<option value="volvo">Select Religion</option>
+										<option value="fiat">Option1</option>
+										<option value="fiat">Option2</option>
+									</select>
+									<div *ngIf="submitted && fval.religion.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+
+							<!-- Communication Details -->
+							<div class="form-group">
+								<span>
+									<h2>Contact Details</h2>
+								</span>
+								<div class="col-sm-6 form-group">
+
+									<label>Address Line 1</label>
+									<div>
+										<input formControlName="address1" class="form-control" type="text"
+											placeholder="Enter Address Here" class="form-control">
+										<small class="error"
+											*ngIf="f.addess1.invalid && (f.address1.dirty || f.address1.touched)">
+											<div *ngIf="f.address1.hasError('required')">This field is required.</div>
+											<div *ngIf="f.address1.hasError('pattern')">Only alphbates are allowed.
+											</div>
+										</small>
+									</div>
+								</div>
+								<div class="col-sm-6 form-group">
+									<label>Address Line 2</label>
+									<div>
+										<input formControlName="address2" class="form-control" type="text"
+											placeholder="Enter Address Here" class="form-control">
+										<small class="error"
+											*ngIf="f.addess2.invalid && (f.address2.dirty || f.address2.touched)">
+											<div *ngIf="f.address2.hasError('required')">This field is required.</div>
+											<div *ngIf="f.address2.hasError('pattern')">Only alphbates are allowed.
+											</div>
+										</small>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6 form-group">
+									<label
+										[ngClass]="{ 'is-invalid': submitted && fval.distrct.value=='' }">District</label>
+									<div>
+										<input formControlName="distrct" class="form-control">
+										<select name="cars" class="custom-select">
+											<option value="volvo">Select District</option>
+											<option value="fiat">Option1</option>
+											<option value="fiat">Option2</option>
+										</select>
+										<div *ngIf="submitted && fval.distrct.value==''" class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="col-sm-6 form-group">
+									<label
+										[ngClass]="{ 'is-invalid': submitted && fval.taluka.value=='' }">Taluka</label>
+
+									<div>
+										<input formControlName="taluka" class="form-control">
+										<select name="cars" class="custom-select">
+											<option value="volvo">Select Religion</option>
+											<option value="fiat">Option1</option>
+											<option value="fiat">Option2</option>
+
+										</select>
+										<div *ngIf="submitted && fval.taluka.value==''" class="invalid-feedback"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.village.value=='' }">Village</label>
+								<div>
+									<input formControlName="village" class="form-control">
+
+									<select name="cars" class="custom-select">
+										<option value="volvo">Select Village</option>
+										<option value="fiat">Option1</option>
+										<option value="fiat">Option2</option>
+
+									</select>
+
+									<div *ngIf="submitted && fval.village.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label [ngClass]="{ 'is-invalid': submitted && fval.state.value=='' }">State</label>
+								<div>
+									<input formControlName="state" class="form-control">
+
+									<select name="cars" class="custom-select">
+										<option value="volvo">Select state</option>
+										<option value="fiat">Option1</option>
+										<option value="fiat">Option2</option>
+
+									</select>
+									<div *ngIf="submitted && fval.state.value==''" class="invalid-feedback"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Pincode</label>
+								<input formControlName="pincode" class="form-control" type="text"
+									placeholder="Enter pincode here.." class="form-control">
+								<small class="error"
+									*ngIf="f.pincode.invalid && (f.pincode.dirty || f.pincode.touched)">
+									<div *ngIf="f.address2.hasError('required')">This field is required.</div>
+									<div *ngIf="f.address2.hasError('pattern')">Only numeric is allowed.</div>
+								</small>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>e-mail</label>
+								<input type="email" placeholder="abc@abc.com" class="form-control">
+								<small class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+									<div *ngIf="f.email.hasError('required')">This field is required.</div>
+									<div *ngIf="f.email.hasError('email')">Enter valid email address.</div>
+								</small>
+							</div>
+
+							<div class="col-sm-6 form-group">
+								<label>Mobile</label>
+								<input type="tel" placeholder="Enter your mobile number here.." class="form-control">
+								<small class="error" *ngIf="f.mbl.invalid && (f.mbile.dirty || f.mobile.touched)">
+									<div *ngIf="f.mbile.hasError('required')">This field is required.</div>
+
+								</small>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Telephone</label>
+								<input type="tel" placeholder="Enter your Telephone number here.." class="form-control">
+								<small class="error"
+									*ngIf="f.telephone.invalid && (f.telephon.dirty || f.telephone.touched)">
+									<div *ngIf="f.telephone.hasError('required')">This field is required.</div>
+
+								</small>
+							</div>
+						</div>
+
+					</div>
+
+
+					<!-- Password Details -->
+
+					<div class="form-group">
+						<span>
+							<h2>Password Details</h2>
+						</span>
+						<div class="col-sm-6 form-group">
+
+							<label>Password</label>
+							<input type="password" placeholder="Enter password Here" class="form-control">
+							<small class="error" *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+								<div *ngIf="f.password.hasError('required')">This field is required.</div>
+								<div *ngIf="f.password.hasError('minlength')">Password must be at least 6 characters.
+								</div>
+							</small>
+						</div>
+						<div class="col-sm-6 form-group">
+							<label>Confirm Password</label>
+							<input type="password" placeholder="Enter password Here" class="form-control">
+							<small class="error" *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+								<div *ngIf="f.password.hasError('required')">This field is required.</div>
+								<div *ngIf="f.password.hasError('minlength')">Password must be at least 6 characters.
+								</div>
+							</small>
+						</div>
+
+
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="submit" class="btn float-center login_btn">
+					</div>
+
+			</div>
+		</div>
+		<!-- Qualification Details -->
+		<div class="container" class="well">
+			<div class="form-group">
+				<span>
+					<h2>Qualification Details</h2>
+				</span>
+				<div class="col-sm-6 form-group">
+					<label [ngClass]="{ 'is-invalid': submitted && fval.university.value=='' }">University</label>
+					<select name="University" class="custom-select">
+						<option value="volvo">Select University</option>
+						<option value="fiat">Option1</option>
+						<option value="fiat">Option2</option>
+
+					</select>
+					<div *ngIf="submitted && fval.university.value==''" class="invalid-feedback"></div>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label [ngClass]="{ 'is-invalid': submitted && fval.passingdistrict.value=='' }"> Passing
+						District</label>
+					<select name="District" class="custom-select">
+						<option value="volvo">Select District</option>
+						<option value="fiat">Option1</option>
+						<option value="fiat">Option2</option>
+
+					</select>
+					<div *ngIf="submitted && fval.passingdistrict.value==''" class="invalid-feedback"></div>
+				</div>
+
+				<div class="col-sm-6 form-group">
+					<label [ngClass]="{ 'is-invalid': submitted && fval.institutename.value=='' }">Institute
+						Name</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">Institute</option>
+						<option value="fiat">Option1</option>
+						<option value="fiat">Option2</option>
+					</select>
+					<div *ngIf="submitted && fval.institutename.value==''" class="invalid-feedback"></div>
+				</div>
+				<!-- Qualification Details fom SSC -->
+				<div class="form-group">
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.board.value=='' }">SSC Board</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Select Board</option>
+							<option value="fiat">Option1</option>
+							<option value="fiat">Option2</option>
+						</select>
+						<div *ngIf="submitted && fval.board.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Passing
+							Year</label>
+						<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-group">
+
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.seatno.value=='' }"> Fill Roll No.</label>
+						<input type=" " placeholder="Enter your passing seat no" class="form-control">
+						<small class="error" *ngIf="f.addess2.invalid && (f.address2.dirty || f.address2.touched)">
+							<div *ngIf="f.address2.hasError('required')">This field is required.</div>
+							<div *ngIf="f.address2.hasError('pattern')">Only alphanumeric are allowed.</div>
+						</small>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingstatus.value=='' }">Select passing
+							Status</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Pass</option>
+							<option value="fiat">Fail</option>
+							<option value="fiat">Compartment</option>
+
+						</select>
+						<div *ngIf="submitted && fval.passingstatus.value==''" class="invalid-feedback"></div>
+					</div>
+
+				</div>
+				<!-- Qualification Details fom HSC -->
+				<div class="form-group">
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.board.value=='' }">HSC /Diploma
+							Board</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Select Board</option>
+							<option value="fiat">Option1</option>
+							<option value="fiat">Option2</option>
+						</select>
+						<div *ngIf="submitted && fval.passingboard.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Passing Year
+							HSC/Diploma </label>
+						<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-group">
+
+					<div class="col-sm-6 form-group">
+						<label>Fill Roll No. HSC/Diploma</label>
+						<input type=" " placeholder="Enter your passing seat no" class="form-control">
+						<small class="error" *ngIf="f.addess2.invalid && (f.address2.dirty || f.address2.touched)">
+							<div *ngIf="f.address2.hasError('required')">This field is required.</div>
+							<div *ngIf="f.address2.hasError('pattern')">Only alphanumeric are allowed.</div>
+						</small>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingstatus.value=='' }">Select
+							HSC/Diploma passing Status</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Pass</option>
+							<option value="fiat">Fail</option>
+							<option value="fiat">Compartment</option>
+						</select>
+						<div *ngIf="submitted && fval.passingstatus.value==''" class="invalid-feedback"></div>
+					</div>
+
+				</div>
+
+				<!-- Qualification Details fom Graduation -->
+				<div class="form-group">
+					<div class="col-sm-6 form-group">
+						<label foorm-controlName="passingstatus"
+							[ngClass]="{ 'is-invalid': submitted && fval.passingstatus.value=='' }">Graduation Passing
+							Status</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Pass</option>
+							<option value="fiat">Fail</option>
+							<option value="fiat">Appered</option>
+						</select>
+						<div *ngIf="submitted && fval.passingstatus.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Graduation Passing/
+							Appear Year</label>
+						<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-group">
+
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingfaculty.value=='' }">Graduation
+							Passing Faculty</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Art</option>
+							<option value="fiat">Science</option>
+							<option value="fiat">Coomerce</option>
+						</select>
+						<div *ngIf="submitted && fval.passingfaculty.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Graduation Appear
+							year</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">First Year</option>
+							<option value="fiat">Second Year</option>
+							<option value="fiat">Third Year</option>
+							<option value="fiat">Fourth Year</option>
+
+						</select>
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+
+				</div>
+
+				<!-- Qualification Details fom Post Graduation -->
+				<div class="form-group">
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingstatus.value=='' }">Post-Graduation
+							Passing Status</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Pass</option>
+							<option value="fiat">Fail</option>
+							<option value="fiat">Appered</option>
+						</select>
+						<div *ngIf="submitted && fval.passingstatus.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Post-Graduation
+							Passing/ Appear Year</label>
+						<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-group">
+
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingfaculty.value=='' }">Post-Graduation
+							Passing Faculty</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">Art</option>
+							<option value="fiat">Science</option>
+							<option value="fiat">Coomerce</option>
+						</select>
+						<div *ngIf="submitted && fval.passingfaculty.value==''" class="invalid-feedback"></div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label [ngClass]="{ 'is-invalid': submitted && fval.passingyear.value=='' }">Post-Graduation
+							Appear year</label>
+						<select name="cars" class="custom-select">
+							<option value="volvo">First Year</option>
+							<option value="fiat">Second Year</option>
+							<option value="fiat">Third Year</option>
+							<option value="fiat">Fourth Year</option>
+
+						</select>
+						<div *ngIf="submitted && fval.passingyear.value==''" class="invalid-feedback"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Participate Program Details (Quotation Answer Page) -->
+		<div class="container" class="well">
+			<div class="form-group">
+				<span>
+					<h2> Participate Program Details</h2>
+				</span>
+
+				<h4 class="award">For Award 1</h4>
+				<div class="col-sm-4 form-group">
+
+					<label [ngClass]="{ 'is-invalid': submitted && fval.participatein.value=='' }">Participated in
+						event</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">yes</option>
+						<option value="fiat">No</option>
+					</select>
+					<div *ngIf="submitted && fval.passinparticipatedin.value==''" class="invalid-feedback"></div>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label [ngClass]="{ 'is-invalid': submitted && fval.appearyear.value=='' }">Appear Year</label>
+					<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+				</div>
+				<div class="col-sm-4 form-group">
+					<label [ngClass]="{ 'is-invalid': submitted && fval.role.value=='' }">Worked As</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">Participant</option>
+						<option value="fiat">Motivator</option>
+						<option value="fiat">Organizer</option>
+					</select>
+					<div *ngIf="submitted && fval.role.value==''" class="invalid-feedback"></div>
+				</div>
+			</div>
+
+			<!-- Award 2 -->
+			<div class="form-group">
+				<h4 class="award">For Award 2</h4>
+				<div class="col-sm-4 form-group">
+
+					<label>Participated in Event</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">yes</option>
+						<option value="fiat">No</option>
+					</select>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Appear Year</label>
+					<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Worked As</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">Participant</option>
+						<option value="fiat">Motivator</option>
+						<option value="fiat">Organizer</option>
+					</select>
+				</div>
+			</div>
+			<!-- Award 3 -->
+			<div class="form-group">
+				<h4 class="award">For Award 3</h4>
+				<div class="col-sm-4 form-group">
+
+					<label>Participated in Event</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">yes</option>
+						<option value="fiat">No</option>
+					</select>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Appear Year</label>
+					<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Worked As</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">Participant</option>
+						<option value="fiat">Motivator</option>
+						<option value="fiat">Organizer</option>
+
+
+					</select>
+				</div>
+			</div>
+			<!-- Award 4 -->
+			<div class="form-group">
+				<h4 class="award">For Award 4</h4>
+				<div class="col-sm-4 form-group">
+
+					<label>Participated in Event</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">yes</option>
+						<option value="fiat">No</option>
+					</select>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Appear Year</label>
+					<input type="date" placeholder="Enter your Year of Passing" class="form-control">
+				</div>
+				<div class="col-sm-4 form-group">
+					<label>Worked As</label>
+					<select name="cars" class="custom-select">
+						<option value="volvo">Participant</option>
+						<option value="fiat">Motivator</option>
+						<option value="fiat">Organizer</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<!-- Upload Image and Signature -->
+		<div class="container" class="well">
+			<div class="form-group">
+
+				<form action="myform.cgi">
+					<label for="fileupload"> Select a file to upload</label>
+					<input type="file" name="fileupload" value="fileupload" id="fileupload">
+					<label for="fileupload"> Select a file to upload</label>
+					<input type="file" name="fileupload" value="fileupload" id="fileupload">
+					<label for="fileupload"> Select a file to upload</label>
+					<input type="file" name="fileupload" value="fileupload" id="fileupload">
+					<label for="fileupload"> Select a file to upload</label>
+					<input type="file" name="fileupload" value="fileupload" id="fileupload">
+					<label for="fileupload"> Select a file to upload</label>
+					<input type="file" name="fileupload" value="fileupload" id="fileupload">
+				</form>
+			</div>
+		</div>
+
+
+		<div class="container" class="well">
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn float-center login_btn" class="btn-btn-primay">
+			</div>
+		</div>
+</form>
+	</form>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,47 @@
+
+<div class="modal-header">
+    <h4 class="modal-title">OTP VERIFICATION</h4>
+  
+  </div>
+  <div class="modal-body">
+     
+    <div  [formGroup]="form">
+      <div class="row justify-content-center">
+      
+        <div class="col-sm-8">
+            <h6>Send a verification code to verify your mobile number </h6>
+           
+              <div class="otp d-flex mt-2">
+                <input  formControlName="otp1" type="text" maxlength="1" />
+                <input   formControlName="otp2" type="text" maxlength="1" />
+                <input   formControlName="otp3" type="text" maxlength="1" />
+                <input   formControlName="otp4" type="text" maxlength="1" />
+            </div>
+          
+            <p class="resend">Don't receive the OTP <a href="#">Resent Code</a></p>
+    
+        </div>
+       
+        <div class="col-sm-12 ">
+            <div class="note text-left  py-1 px-2">
+                <h6 class="pl-0">Note</h6>
+                <ul class="pl-3 mb-0">
+    
+                    <li>Please enter your one time password (4 digits) received on your registered mobile number.</li>
+                    <li>If you don't get OTP on mobile then you will get OTP call and can refer to verify OTP.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="candidateID" formControlName="candidateID" />  
+    </div>
+    <button  (click)="onsave()" cdkFocusInitial class="btn btn-primary mx-auto verify w-25" (click)="verify()"  >Verify</button>
+   
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+  
+  
+  
+   

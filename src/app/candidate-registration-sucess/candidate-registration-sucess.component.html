@@ -1,0 +1,36 @@
+ 
+<div class="modal-header">
+  <h5 class="modal-title">Registered Successfully !</h5>
+
+
+</div>
+<div class="modal-body">
+ 
+<div >
+  <div class="row justify-content-center">
+          <div class="modal-body pt-0">
+              <i class="far fa-check-circle"></i>
+              
+
+              <p class="mb-1">Your Registration ID is </p>
+              <span class="registrationID">{{this.LoginID}}</span>
+
+              <div class="note text-left  py-1 px-2 mt-3">
+                  <h6 class="pl-0">Note</h6>
+                  <ul class="pl-3 mb-0">
+
+                      <li>Please note down system generated Registration ID and chosen Password for all future logins. </li>
+                      <li>Candidate can change his/her password after login, if desired. </li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+         
+        </div>
+        <div>
+          <button  (click)="onLogin()" class="btn btn-primary mx-auto verify">Proceed to Login</button> 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      </div>
